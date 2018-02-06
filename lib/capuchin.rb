@@ -13,6 +13,7 @@ require "yaml"
 require "capuchin/markdown"
 require "capuchin/email"
 require "capuchin/scheduler"
+require "capuchin/send"
 require "capuchin/mailchimp"
 
 module Capuchin; end

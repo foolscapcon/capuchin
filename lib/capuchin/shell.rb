@@ -9,15 +9,24 @@ module Capuchin
     def schedule(path)
       dir = File.dirname(path)
       filename = File.basename(path)
-      
+
       email = Capuchin::Email.new(dir, filename)
 
       puts Capuchin::Scheduler.new(email, @options).schedule
     end
 
+    def send(path)
+      dir = File.dirname(path)
+      filename = File.basename(path)
+
+      email = Capuchin::Email.new(dir, filename)
+
+      puts Capuchin::Send.new(email, @options)
+    end
+
     def scaffold(path)
       directory_path = File.expand_path(path, Dir.pwd)
-      
+
       FileUtils.mkdir_p(directory_path)
       FileUtils.cp_r sample_directory + '/.', directory_path
 

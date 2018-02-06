@@ -28,6 +28,15 @@ command :schedule do |c|
   end
 end
 
+command :send do |c|
+  c.syntax = "capuchin send <path_to_email>"
+  c.description = "Send an email via MailChimp"
+
+  c.action do |args, options|
+    shell.send(args.first)
+  end
+end
+
 command :new do |c|
   c.syntax = "capuchin new <directory>"
   c.description = "Creates a new Capuchin directory scaffold in <directory>"
